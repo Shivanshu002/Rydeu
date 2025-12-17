@@ -21,19 +21,12 @@ const withTimeout = (promise, ms) =>
 
 const parseResponse = async (res) => {
     if (res.status === 401) {
-        // optional: redirectToLogin();
     }
-
-    const isJson = res.headers
-        .get("content-type")
-        ?.includes("application/json");
-
+    const isJson = res.headers.get("content-type")?.includes("application/json");
     const data = isJson ? await res.json() : await res.text();
-
     if (res.ok) {
         return { status: res.status, ...data };
     }
-
     return Promise.reject({ status: res.status, ...data });
 };
 

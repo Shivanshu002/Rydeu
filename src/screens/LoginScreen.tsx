@@ -17,25 +17,21 @@ import {
     loginStart,
     loginSuccess,
 } from '../redux/slices/authSlice';
-import { AppDispatch, RootState } from '../redux/store';
+import { RootState } from '../redux/store';
 import { doPost } from '../services';
 import { Routes } from '../utils/routers';
 
 const LoginScreen = () => {
-    const dispatch = useDispatch<AppDispatch>();
-    const navigation = useNavigation<any>();
-
-    const { loading, error } = useSelector(
-        (state: RootState) => state.auth
-    );
-
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
+    const dispatch = useDispatch();
+    const navigation = useNavigation();
+
+    const { loading, error } = useSelector((state: RootState) => state.auth);
 
     const loginApi = async () => {
-        console.log("trigger");
         const url = `${Routes.url.user.login}`
         const payload = {
             username,
@@ -135,7 +131,7 @@ const LoginScreen = () => {
             </View>
 
             <View style={styles.registerRow}>
-                <Text>New to iThickLogistics? </Text>
+                <Text>New One </Text>
                 <TouchableOpacity>
                     <Text style={styles.registerText}>Register</Text>
                 </TouchableOpacity>

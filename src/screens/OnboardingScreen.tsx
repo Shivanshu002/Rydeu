@@ -1,20 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const OnboardingScreen = ({ navigation }) => {
+const OnboardingScreen = (navigation: any) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Book Your Ride</Text>
             <Text style={styles.subtitle}>
                 Safe, fast, and reliable rides anytime, anywhere.
             </Text>
-
-            <View style={styles.features}>
-                <Text style={styles.feature}>🚗 Choose your ride</Text>
-                <Text style={styles.feature}>📍 Live location tracking</Text>
-                <Text style={styles.feature}>💳 Easy & secure payments</Text>
-            </View>
-
             <TouchableOpacity
                 style={styles.button}
                 onPress={() => navigation.replace('Login')}
