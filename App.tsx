@@ -86,7 +86,6 @@ function TabNavigator() {
 
 const AuthLoader = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     const loadUser = async () => {
       const user = await AsyncStorage.getItem('user');
